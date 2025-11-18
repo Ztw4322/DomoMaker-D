@@ -35,67 +35,67 @@ const handleSignup = (e) => {
     helper.handleError('Passwords do not match!');
   }
 
-  helper.sendPost(e.target.action, { username, pass, pass2});
+  helper.sendPost(e.target.action, { username, pass, pass2 });
 
   return false;
 };
 
 const LoginWindow = (props) => {
-    return (
-        <form id="loginForm"
-              name="loginForm"
-              onSubmit = {handleLogin}
-              action = "/login"
-              method="POST"
-              className="mainForm">
-                <label htmlFor="username">Username: </label>
-                <input type="text" id='user' name='username' placeholder='username'/>
-                <label htmlFor="password">Password: </label>
-                <input type="text" id='pass' name='pass' placeholder='password' />
-                <input type="submit" value="Sign in" className='formSubmit'/>
-              </form>
-    );
+  return (
+    <form id="loginForm"
+      name="loginForm"
+      onSubmit={handleLogin}
+      action="/login"
+      method="POST"
+      className="mainForm">
+      <label htmlFor="username">Username: </label>
+      <input type="text" id='user' name='username' placeholder='username' />
+      <label htmlFor="password">Password: </label>
+      <input type="text" id='pass' name='pass' placeholder='password' />
+      <input type="submit" value="Sign in" className='formSubmit' />
+    </form>
+  );
 };
 
 const SignupWindow = (props) => {
-    return (
-        <form id="signupForm"
-              name="signupForm"
-              onSubmit = {handleSignup}
-              action = "/signup"
-              method="POST"
-              className="mainForm"
-              >
-                <label htmlFor="username">Username: </label>
-                <input type="text" id='user' name='username' placeholder='username'/>
-                <label htmlFor="password">Password: </label>
-                <input type="text" id='pass' name='pass' placeholder='password' />
-                <label htmlFor="password">Password: </label>
-                <input type="text" id='pass2' name='pass2' placeholder='retype password' />
-                <input type="submit" value="Sign Up" className='formSubmit'/>
-              </form>
-    );
+  return (
+    <form id="signupForm"
+      name="signupForm"
+      onSubmit={handleSignup}
+      action="/signup"
+      method="POST"
+      className="mainForm"
+    >
+      <label htmlFor="username">Username: </label>
+      <input type="text" id='user' name='username' placeholder='username' />
+      <label htmlFor="password">Password: </label>
+      <input type="text" id='pass' name='pass' placeholder='password' />
+      <label htmlFor="password">Password: </label>
+      <input type="text" id='pass2' name='pass2' placeholder='retype password' />
+      <input type="submit" value="Sign Up" className='formSubmit' />
+    </form>
+  );
 };
 
 const init = () => {
-    const loginButton = document.getElementById('loginButton');
-    const signupButton = document.getElementById('signupButton');
+  const loginButton = document.getElementById('loginButton');
+  const signupButton = document.getElementById('signupButton');
 
-    const root = createRoot(document.getElementById('content'));
+  const root = createRoot(document.getElementById('content'));
 
-    loginButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        root.render(<LoginWindow />);
-        return false;
-    });
-
-      signupButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        root.render(<SignupWindow />);
-        return false;
-    });
-
+  loginButton.addEventListener('click', (e) => {
+    e.preventDefault();
     root.render(<LoginWindow />);
+    return false;
+  });
+
+  signupButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    root.render(<SignupWindow />);
+    return false;
+  });
+
+  root.render(<LoginWindow />);
 };
 
 window.onload = init;
