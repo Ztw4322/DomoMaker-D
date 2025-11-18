@@ -38,7 +38,7 @@ const getDomos = async (req,res) => {
   }
 }
 
-const makerPage = async (req, res) => {
+const makerPage = (req, res) => {
   return res.render('app');
 };
 
