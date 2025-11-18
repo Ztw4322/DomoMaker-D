@@ -29,8 +29,24 @@ const login = (req, res) => {
   });
 };
 
+const signup = async (req, res) => {
+  const username = `${req.body.username}`;
+  const pass = `${req.body.pass}`;
+  const pass2 = `${req.body.pass2}`;
+
+  if (!username || !pass || !pass2) {
+    return res.status(400).json({ error: 'All Fields are required!' });
+  }
+
+  if (pass !== pass2) {
+    return res.status(400).json({ error: 'Passwords do not match!' });
+  }
+};
+
+
 module.exports = {
   loginPage,
   login,
+  signup,
   logout,
 };
