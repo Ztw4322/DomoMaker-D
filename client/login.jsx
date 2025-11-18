@@ -33,6 +33,7 @@ const handleSignup = (e) => {
 
   if (pass !== pass2) {
     helper.handleError('Passwords do not match!');
+    return false;
   }
 
   helper.sendPost(e.target.action, { username, pass, pass2 });
@@ -50,7 +51,7 @@ const LoginWindow = (props) => {
       className="mainForm">
       <label htmlFor="username">Username: </label>
       <input type="text" id='user' name='username' placeholder='username' />
-      <label htmlFor="password">Password: </label>
+      <label htmlFor="pass">Password: </label>
       <input type="text" id='pass' name='pass' placeholder='password' />
       <input type="submit" value="Sign in" className='formSubmit' />
     </form>
@@ -67,11 +68,11 @@ const SignupWindow = (props) => {
       className="mainForm"
     >
       <label htmlFor="username">Username: </label>
-      <input type="text" id='user' name='username' placeholder='username' />
-      <label htmlFor="password">Password: </label>
-      <input type="text" id='pass' name='pass' placeholder='password' />
-      <label htmlFor="password">Password: </label>
-      <input type="text" id='pass2' name='pass2' placeholder='retype password' />
+      <input id='user' type="text" name='username' placeholder='username' />
+      <label htmlFor="pass">Password: </label>
+      <input id='pass' type="password" name='pass' placeholder='password' />
+      <label htmlFor="pass">Password: </label>
+      <input id='pass2' type="password" name='pass2' placeholder='retype password' />
       <input type="submit" value="Sign Up" className='formSubmit' />
     </form>
   );
